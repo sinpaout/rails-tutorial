@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_12_220002) do
+ActiveRecord::Schema.define(version: 2018_07_12_220004) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "title"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 2018_07_12_220002) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "price", precision: 5, scale: 2
+    t.string "supplier_type"
+    t.bigint "supplier_id"
+    t.index ["supplier_type", "supplier_id"], name: "index_shops_on_supplier_type_and_supplier_id"
   end
 
   add_foreign_key "comments", "articles"
