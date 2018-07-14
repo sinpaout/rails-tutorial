@@ -52,5 +52,12 @@ ActiveRecord::Schema.define(version: 2018_07_12_220006) do
     t.index ["supplier_type", "supplier_id"], name: "index_shops_on_supplier_type_and_supplier_id"
   end
 
+  create_table "trips", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "place"
+    t.datetime "visit_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
   add_foreign_key "comments", "articles"
 end
