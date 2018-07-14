@@ -59,5 +59,15 @@ ActiveRecord::Schema.define(version: 2018_07_12_220006) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "traveller", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "place"
+    t.integer "visit_age", null: false
+    t.datetime "visit_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "comments", "articles"
 end
