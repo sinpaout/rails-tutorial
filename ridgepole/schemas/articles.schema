@@ -4,7 +4,7 @@ create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE
   t.string "title"
   t.text "text"
   t.text "author"
-  t.integer "category_id"
   t.datetime "created_at"
   t.datetime "updated_at"
+  t.integer "category_id"
 end

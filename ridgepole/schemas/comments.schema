@@ -3,8 +3,10 @@
 create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
   t.string "commenter"
   t.text "body"
-  t.integer "article_id"
+  t.bigint "article_id", null: false
   t.datetime "created_at"
   t.datetime "updated_at"
   t.index ["article_id"], name: "index_comments_on_article_id"
 end
+
+add_foreign_key "comments", "articles", name: "fk_article_id_on_comments"
